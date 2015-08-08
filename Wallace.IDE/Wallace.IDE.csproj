@@ -1,0 +1,574 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C7DF8A83-463C-4F7C-BF5B-F0106B922B47}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Wallace.IDE</RootNamespace>
+    <AssemblyName>Wallace.IDE</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>
+    </ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Framework\FunctionHost.cs" />
+    <Compile Include="Framework\Function\AboutFunction.cs" />
+    <Compile Include="Framework\FunctionSeparator.cs" />
+    <Compile Include="Framework\Function\SettingsFunction.cs" />
+    <Compile Include="Framework\Function\UserGuideFunction.cs" />
+    <Compile Include="Framework\HotKey.cs" />
+    <Compile Include="Framework\ISettings.cs" />
+    <Compile Include="Framework\ISettingsManager.cs" />
+    <Compile Include="Framework\UI\ChromeTab.cs" />
+    <Compile Include="Framework\UI\AboutWindow.xaml.cs">
+      <DependentUpon>AboutWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Framework\UI\SettingsManager.cs" />
+    <Compile Include="Framework\UI\SettingsWindow.xaml.cs">
+      <DependentUpon>SettingsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Framework\UI\TabTreeNodeManager.cs" />
+    <Compile Include="Framework\UI\UniqueObservableCollection.cs" />
+    <Compile Include="Framework\UI\WindowIconImage.xaml.cs">
+      <DependentUpon>WindowIconImage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Framework\UI\ErrorDetailsWindow.xaml.cs">
+      <DependentUpon>ErrorDetailsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Framework\ClientBrowser.cs" />
+    <Compile Include="Framework\UI\TreeViewMultiSelectItem.cs" />
+    <Compile Include="Framework\UI\AskUserWindow.xaml.cs">
+      <DependentUpon>AskUserWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Framework\UI\DisposableWait.cs" />
+    <Compile Include="Framework\UI\ErrorProvider.cs" />
+    <Compile Include="Framework\UI\ButtonFunctionPresenter.cs" />
+    <Compile Include="Framework\UI\ToolBarFunctionManager.cs" />
+    <Compile Include="Framework\Function\ExitFunction.cs" />
+    <Compile Include="Framework\DocumentBase.cs" />
+    <Compile Include="Framework\FunctionBase.cs" />
+    <Compile Include="Framework\HostBase.cs" />
+    <Compile Include="Framework\IDocumentManager.cs" />
+    <Compile Include="Framework\IDocument.cs" />
+    <Compile Include="Framework\IDocumentPresenter.cs" />
+    <Compile Include="Framework\IFunction.cs" />
+    <Compile Include="Framework\IFunctionManager.cs" />
+    <Compile Include="Framework\IFunctionPresenter.cs" />
+    <Compile Include="Framework\INode.cs" />
+    <Compile Include="Framework\INodeManager.cs" />
+    <Compile Include="Framework\INodePresenter.cs" />
+    <Compile Include="Framework\UI\MenuFunctionManager.cs" />
+    <Compile Include="Framework\UI\MenuItemFunctionPresenter.cs" />
+    <Compile Include="Framework\NodeBase.cs" />
+    <Compile Include="Framework\FunctionGrouping.cs" />
+    <Compile Include="Framework\UI\TabControlDocumentManager.cs" />
+    <Compile Include="Framework\UI\TabItemDocumentPresenter.cs" />
+    <Compile Include="Framework\UI\TreeViewItemNodePresenter.cs" />
+    <Compile Include="Framework\UI\TreeViewNodeManager.cs" />
+    <Compile Include="Framework\UI\Commands.cs" />
+    <Compile Include="Framework\UI\TabOverflowButton.xaml.cs">
+      <DependentUpon>TabOverflowButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Framework\VisualHelper.cs" />
+    <Compile Include="Framework\UI\WindowCaptionButton.xaml.cs">
+      <DependentUpon>WindowCaptionButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Framework\UI\WindowCloseButton.cs" />
+    <Compile Include="Framework\UI\WindowMaximizeButton.cs" />
+    <Compile Include="Framework\UI\WindowMinimizeButton.cs" />
+    <Compile Include="Framework\Win32\Constant.cs" />
+    <Compile Include="Framework\Win32\MINMAXINFO.cs" />
+    <Compile Include="Framework\Win32\POINT.cs" />
+    <Compile Include="Framework\Win32\RECT.cs" />
+    <Page Include="Framework\Styles\ChromeCheckBoxStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Framework\Styles\ChromeComboBoxStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Framework\Styles\ChromeLinkButtonStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Framework\Styles\ChromeToolbarStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Framework\Styles\TreeViewMultiSelectItemStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Framework\UI\AboutWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Framework\UI\SettingsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Framework\UI\WindowIconImage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Framework\UI\ErrorDetailsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Framework\Styles\ChromeMenuStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Framework\Styles\ChromeScrollViewerStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Framework\Styles\ChromeTabStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Framework\Styles\ThemeColorStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Framework\Styles\ChromeWindowStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="IDE.cs" />
+    <Compile Include="IDEDetails.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Framework\UI\AskUserWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Framework\UI\TabOverflowButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Framework\UI\WindowCaptionButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\FolderClosed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\NewProject.png" />
+    <Resource Include="Resources\OpenProject.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Document.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Object.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\ObjectField.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Table.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Run.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Next.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Error32.png" />
+    <Resource Include="Resources\Information32.png" />
+    <Resource Include="Resources\Question32.png" />
+    <Resource Include="Resources\Warning32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Class.png" />
+    <Resource Include="Resources\Field.png" />
+    <Resource Include="Resources\Interface.png" />
+    <Resource Include="Resources\Method.png" />
+    <Resource Include="Resources\Property.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\NextAlt.png" />
+    <Resource Include="Resources\PreviousAlt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\CloseAlt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\MatchCase.png" />
+    <Resource Include="Resources\MatchWholeWord.png" />
+    <Resource Include="Resources\Regex.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Package.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\NewPackage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\CloseProject.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\NewDocument.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Empty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Find.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Copy.png" />
+    <Resource Include="Resources\Cut.png" />
+    <Resource Include="Resources\Paste.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Pin.png" />
+    <Resource Include="Resources\PinAlt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\DocumentClass.png" />
+    <Resource Include="Resources\DocumentPage.png" />
+    <Resource Include="Resources\DocumentTrigger.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\NewDocumentClass.png" />
+    <Resource Include="Resources\NewDocumentPage.png" />
+    <Resource Include="Resources\NewDocumentTrigger.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Redo.png" />
+    <Resource Include="Resources\Undo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Pencil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\MethodPrivate.png" />
+    <Resource Include="Resources\MethodProtected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\PropertyPrivate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\FieldPrivate.png" />
+    <Resource Include="Resources\FieldProtected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\ClassPrivate.png" />
+    <Resource Include="Resources\ClassProtected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Constant.png" />
+    <Resource Include="Resources\ConstantPrivate.png" />
+    <Resource Include="Resources\ConstantProtected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Structure.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Keyword.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Literal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\FolderOpen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\RunTests.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Blocked.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Asterix.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Success.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Enum.png" />
+    <Resource Include="Resources\EnumPrivate.png" />
+    <Resource Include="Resources\EnumProtected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Test.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Namespace.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Element.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Event.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\WebBrowser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Manifest.png" />
+    <Resource Include="Resources\NewManifest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\DeployPackage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\AddFileToManifest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Report.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\MergeManifest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Checkpoint.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Checkpoints.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\FoldCollapse.png" />
+    <Resource Include="Resources\FoldExpand.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\AddComment.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\RemoveComment.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\ExportDocument.png" />
+    <Resource Include="Resources\ImportDocument.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\SelectAll.png" />
+    <Resource Include="Resources\SelectNone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\ExportData.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\LogViewer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\DeleteLog.png" />
+    <Resource Include="Resources\DeleteLogAll.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Comment.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Workflow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Log.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\DocumentClassEdit.png" />
+    <Resource Include="Resources\DocumentClassLock.png" />
+    <Resource Include="Resources\DocumentEdit.png" />
+    <Resource Include="Resources\DocumentLock.png" />
+    <Resource Include="Resources\DocumentPageEdit.png" />
+    <Resource Include="Resources\DocumentPageLock.png" />
+    <Resource Include="Resources\DocumentTriggerEdit.png" />
+    <Resource Include="Resources\DocumentTriggerLock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\CheckIn.png" />
+    <Resource Include="Resources\CheckOut.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Annotation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\History.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\User.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Compare.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Previous.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\CodeCoverage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\TestManager.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Relationship.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\NewSnippet.png" />
+    <Resource Include="Resources\Snippet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\IndexSearch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\FindinFiles.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Lib\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\WebService.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\NewWebService.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\ProjectClosed.png" />
+    <Resource Include="Resources\ProjectOpen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\OpenDocument.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Warning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Address.png" />
+    <Resource Include="Resources\NewAddress.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\ExportProject.png" />
+    <Resource Include="Resources\ImportProject.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\DocumentXml.png" />
+    <Resource Include="Resources\NewDocumentXml.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Rename.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\NewFolder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Open.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
